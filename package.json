@@ -1,0 +1,50 @@
+{
+  "name": "rate_gen_app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3025",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio"
+  },
+  "dependencies": {
+    "@better-auth/drizzle-adapter": "^1.6.12",
+    "@google/generative-ai": "^0.24.1",
+    "@libsql/client": "^0.17.3",
+    "@react-email/components": "^1.0.12",
+    "@react-pdf/renderer": "^4.5.1",
+    "@sentry/nextjs": "^10.55.0",
+    "better-auth": "^1.6.12",
+    "drizzle-orm": "~0.45.2",
+    "lucide-react": "~0.460.0",
+    "next": "16.2.6",
+    "posthog-js": "^1.376.4",
+    "posthog-node": "^5.35.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-email": "^6.5.0",
+    "resend": "^6.12.4",
+    "stripe": "^17.7.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "kysely": "0.27.4"
+    }
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "latest",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.5.0",
+    "cross-env": "^10.1.0",
+    "drizzle-kit": "~0.31.4",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5"
+  }
+}

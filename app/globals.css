@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────
+   RateGen brand tokens
+   jp freelancer 信頼感: Navy × Cream × Gold
+   Light-first (信頼性重視)
+   ───────────────────────────────────────────────────────── */
+
+:root {
+  /* surfaces */
+  --canvas:           #f9f7f4;   /* warm cream white */
+  --surface-1:        #ffffff;
+  --surface-2:        #f3f1ee;
+  --surface-3:        #ede9e4;
+  --hairline:         #e2ddd7;
+  --hairline-strong:  #c8c2bb;
+
+  /* ink */
+  --ink:              #1a1814;   /* warm near-black */
+  --ink-muted:        #3d3830;
+  --ink-subtle:       #7a7269;
+  --ink-tertiary:     #b0a99f;
+
+  /* brand colors */
+  --brand-navy:       #1e3a5f;   /* primary: trust navy */
+  --brand-indigo:     #2d5fa6;   /* secondary: action indigo */
+  --brand-gold:       #c8952a;   /* accent: professional gold */
+  --brand-cream:      #fdf8f0;   /* highlight background */
+
+  /* semantic */
+  --success:          #2d7d46;
+  --warning:          #c8952a;
+  --danger:           #b42318;
+  --info:             #1e6e9f;
+
+  /* fonts */
+  --font-sans:    'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+html, body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100dvh;
+  font-feature-settings: 'cv11', 'ss01', 'ss03';
+}
+
+::selection {
+  background: color-mix(in srgb, var(--brand-indigo) 20%, transparent);
+  color: var(--ink);
+}
+
+/* Utility classes */
+.hairline { border-color: var(--hairline); }
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-subtle);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand-indigo);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
