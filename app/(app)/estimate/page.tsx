@@ -101,6 +101,62 @@ export default function EstimatePage() {
           </p>
         </div>
 
+        {/* フリーランス保護新法チェッカー — HOOK feature */}
+        <div className="rounded-xl border-2 border-brand-gold/40 bg-brand-gold/5 p-5 mb-6">
+          <div className="flex items-start gap-3 mb-3">
+            <span className="text-lg">⚖️</span>
+            <div>
+              <h3 className="font-semibold text-brand-navy mb-0.5">フリーランス保護新法チェック</h3>
+              <p className="text-xs text-ink-subtle">2024年11月施行 · 特定受託事業者取引適正化等法</p>
+            </div>
+          </div>
+          <div className="space-y-3">
+            {[
+              {
+                label: "報酬支払期日（60日ルール）",
+                check: true,
+                note: "給付受領日から60日以内を支払期日とすること",
+              },
+              {
+                label: "書面明示義務",
+                check: true,
+                note: "業務委託の内容・報酬・支払期日を書面または電子で明示",
+              },
+              {
+                label: "一方的な報酬減額禁止",
+                check: true,
+                note: "受発注後の一方的な単価引き下げ・報酬減額は禁止",
+              },
+              {
+                label: "育休・介護休業配慮義務",
+                check: result.marketPercentile >= 40,
+                note:
+                  result.marketPercentile >= 40
+                    ? "この単価帯は継続案件が多く配慮義務対象になりやすい"
+                    : "単発案件が多い単価帯。配慮義務確認を推奨",
+              },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="flex items-start gap-3 p-3 rounded-lg bg-white/60"
+              >
+                <span
+                  className={`mt-0.5 text-sm font-bold ${item.check ? "text-green-600" : "text-amber-500"}`}
+                >
+                  {item.check ? "✓" : "!"}
+                </span>
+                <div>
+                  <p className="text-sm font-medium text-brand-navy">{item.label}</p>
+                  <p className="text-xs text-ink-subtle">{item.note}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-ink-tertiary mt-3">
+            ※ 法令遵守の確認は専門家（弁護士・社労士）にご相談ください。本機能は参考情報の提供のみです。
+          </p>
+        </div>
+
         <div className="rounded-xl border hairline bg-surface-1 p-5 mb-6">
           <h3 className="font-semibold text-ink mb-3">次のステップ</h3>
           <div className="space-y-2 text-sm text-ink-muted">
