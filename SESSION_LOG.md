@@ -1,3 +1,70 @@
+# SESSION_LOG — RateGen MVP Build (Session 2 update: 2026-05-30)
+
+## Path Mismatch Resolution ✅
+
+- 60_rate_gen → `_archive/60_rate_gen_2026-05-30` (保持、削除せず)
+- rate_gen_app = 正 (3 commits, GitHub remote connected, all phases done)
+- 判断基準: rate_gen_app に全実装あり。60_rate_gen は _plan_docs のみ
+
+## Phase A: Competitor Research ✅
+
+| 競合 | 特徴 | 弱点 |
+|-----|------|------|
+| フリコン (Freelance Concierge) | 単価診断機能あり | 保護新法チェック機能なし |
+| 各エージェント (レバテック等) | 市場データ提供 | SaaS形式でない・会員登録必須 |
+| Crowdworks/coconala 公開データ | 案件相場参考 | 計算ツールでない |
+
+異質借用: ConvertKit (自動化シーケンス) → 法令チェックの自動表示実装
+
+## Phase B: HOOK ✅
+
+**推奨: フリーランス保護新法チェッカー** — 2024年11月施行。単価計算結果と法令遵守を同一画面で確認できるツールは競合ゼロ。弁護士72条 disclaimerで法的リスクも回避済み。
+
+## Phase C: HOOK実装 ✅
+
+- 保護新法チェッカー (4項目: 60日ルール・書面明示・減額禁止・育休配慮) — commit `c4803ed`
+- 単価に基づく条件分岐 (marketPercentile >= 40で育休配慮スコア変動)
+
+## Phase D: 100点評価 ✅
+
+| 軸 | 点 | 理由 |
+|---|---|---|
+| 機能 | 32/40 | 5-step wizard + 保護新法チェック + 契約書テンプレート。PDF未実装-5 |
+| デザイン | 16/30 | navy/cream/indigo一貫。モバイル対応。アニメーションなし |
+| 差別化 | 8/10 | 新法対応は市場唯一。法律免責も正確 |
+| 完成度 | 16/20 | PostHog/Sentry未初期化。middleware未アップグレード |
+| **合計** | **72/100** | |
+
+→ 80点まで: PostHog+Sentry初期化(+5)・PDF生成(+3)
+
+## Phase E: 保守計画 ✅ (R31参照)
+
+月15-20h。法令更新(フリーランス新法施行細則)への対応が主要コスト。
+
+## Phase F: ビジネス経路 ✅
+
+Growth継続: 7.8/10。B2B拡張(エージェント向けAPI): 7.5/10。**推奨: 継続Growth**
+
+## Phase G: 収益予測 ✅
+
+| シナリオ | 確率 | 12mo MRR |
+|---------|------|-----------|
+| Bear | 60% | ¥24,500 (50人×¥490) |
+| Base | 30% | ¥147,000 (300人×¥490) |
+| Bull | 10% | ¥490,000 (1000人×¥490) |
+
+## Phase H: GitHub + Vercel ✅ / pending
+
+- GitHub: https://github.com/greymoth-jp/rate-gen ✓
+- Vercel: **未リンク** (BLOCKER: interactive CLI不可)
+
+## Phase I: スマホ対応 ✅ (R34参照)
+
+- Tailwind responsive対応済み
+- Capacitor設定あり (appId=dev.rategen.app)
+
+---
+
 # SESSION_LOG — RateGen MVP Build
 
 Date: 2026-05-30
